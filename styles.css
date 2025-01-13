@@ -1,0 +1,206 @@
+/* إعدادات عامة */
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to right, #004080, #00bcd4); /* خلفية تدرجية */
+    overflow-x: hidden;
+}
+
+/* خلفية الفيديو */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    opacity: 15%;
+}
+
+/* القسم الخاص باللوجو واسم الكيان */
+.logo-section {
+    text-align: center;
+    margin-top: 100px; /* مساحة أعلى من الهيدر */
+    padding: 20px;
+    background-color: rgba(0, 64, 128, 0.8); /* خلفية شفافة */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-out; /* إضافة تأثير الحركة */
+}
+
+.logo-section .logo {
+    max-width: 120px;
+    margin-bottom: 15px;
+    animation: bounce 1s infinite alternate; /* تأثير اهتزاز اللوجو */
+}
+
+.logo-section h1 {
+    font-size: 2.8em;
+    margin: 0;
+    color: #ffcc00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* الهيدر */
+.main-header {
+    background-color: #004080;
+    color: white;
+    padding: 0 20px; /* إزالة الحشو العلوي */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 0; /* إلغاء المسافة العليا للهيدر */
+    transition: background-color 0.3s ease; /* تأثير تغيير اللون */
+}
+
+/* تعديل التنسيق للقائمة */
+.main-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start; /* محاذاة العناصر لليسار */
+    gap: 15px;
+    position: absolute;
+    top: 10px; /* ترك مساحة أعلى من الهيدر */
+    left: 20px;
+}
+
+.main-header nav ul li a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-header nav ul li a:hover {
+    color: #004080;
+    background-color: #ffcc00;
+    transform: scale(1.1); /* تأثير التكبير عند المرور */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* المحتوى */
+.content {
+    flex: 1;
+    text-align: center;
+    padding: 100px 10px 20px;
+    position: relative;
+}
+
+.about {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* تأثير الدخول */
+}
+
+.about h2 {
+    color: #004080;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out; /* تأثير حركي لعنوان النبذة */
+}
+
+.about p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* الفوتر */
+.main-footer {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8em;
+    margin-top: auto;
+}
+
+.main-footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.main-footer a:hover {
+    text-decoration: underline;
+}
+
+/* تأثيرات الحركة */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* استعلامات الوسائط */
+@media (max-width: 768px) {
+    .main-header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about {
+        padding: 30px 15px;
+    }
+
+    .logo-section h1 {
+        font-size: 2.2em;
+    }
+}
